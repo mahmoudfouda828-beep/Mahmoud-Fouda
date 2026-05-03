@@ -3,16 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Foudagraphy | Studio</title>
+<title>Foudagraphy | Creative Studio</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
 :root{
---bg:#0b0b0b;
---card:#161616;
---gold:#d6b25e;
---text:#fff;
+  --bg:#0b0b0b;
+  --card:#161616;
+  --gold:#d6b25e;
+  --text:#fff;
 }
 
 *{
@@ -31,10 +31,10 @@ color:var(--text);
 .hero{
 height:90vh;
 background:url('IMG_8457.jpg') center/cover no-repeat;
+position:relative;
 display:flex;
 align-items:center;
 justify-content:center;
-position:relative;
 text-align:center;
 }
 
@@ -55,6 +55,8 @@ width:130px;
 height:130px;
 border-radius:50%;
 border:3px solid var(--gold);
+object-fit:cover;
+cursor:pointer;
 }
 
 .hero h1{font-size:34px;margin-top:10px;}
@@ -65,12 +67,15 @@ display:inline-block;
 padding:10px 24px;
 border:2px solid var(--gold);
 color:var(--gold);
-border-radius:30px;
 text-decoration:none;
-cursor:pointer;
+border-radius:30px;
+transition:.3s;
 }
 
-.btn:hover{background:var(--gold);color:#000;}
+.btn:hover{
+background:var(--gold);
+color:#000;
+}
 
 /* LINKS */
 .links{
@@ -86,25 +91,33 @@ padding:14px;
 margin:10px 0;
 background:var(--card);
 border-radius:12px;
-color:#fff;
 text-decoration:none;
+color:#fff;
+transition:.3s;
 }
 
-/* SECTION */
+.link:hover{
+transform:translateY(-3px);
+border:1px solid var(--gold);
+}
+
+/* GALLERY */
 .section-title{
 text-align:center;
 color:var(--gold);
 margin:30px 0 15px;
 }
 
-/* GALLERY */
+.gallery{
+max-width:1000px;
+margin:auto;
+padding:20px;
+}
+
 .grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
 gap:10px;
-max-width:1000px;
-margin:auto;
-padding:20px;
 }
 
 .grid img{
@@ -113,6 +126,12 @@ height:120px;
 object-fit:cover;
 border-radius:10px;
 cursor:pointer;
+transition:.3s;
+will-change: transform;
+}
+
+.grid img:hover{
+transform:scale(1.08);
 }
 
 /* FORM */
@@ -132,6 +151,8 @@ background:#1e1e1e;
 color:#fff;
 }
 
+textarea{height:100px;resize:none;}
+
 button{
 width:100%;
 padding:12px;
@@ -145,19 +166,39 @@ cursor:pointer;
 /* LIGHTBOX */
 #lightbox{
 position:fixed;
-inset:0;
+top:0;
+left:0;
+width:100%;
+height:100%;
 background:rgba(0,0,0,0.92);
 display:none;
 align-items:center;
 justify-content:center;
-flex-direction:column;
 z-index:9999;
+flex-direction:column;
 }
 
 #lightbox img{
 max-width:90%;
 max-height:80%;
 border-radius:10px;
+box-shadow:0 0 30px rgba(0,0,0,0.6);
+}
+
+.controls{
+margin-top:15px;
+display:flex;
+gap:20px;
+}
+
+.controls button{
+width:auto;
+padding:10px 15px;
+background:var(--gold);
+border:none;
+border-radius:8px;
+cursor:pointer;
+font-weight:bold;
 }
 
 .close{
@@ -165,22 +206,8 @@ position:absolute;
 top:20px;
 right:20px;
 font-size:30px;
-cursor:pointer;
 color:#fff;
-}
-
-/* ADMIN */
-.admin{
-max-width:1000px;
-margin:auto;
-padding:20px;
-}
-
-.card{
-background:var(--card);
-padding:15px;
-margin:10px 0;
-border-radius:10px;
+cursor:pointer;
 }
 </style>
 </head>
@@ -190,133 +217,96 @@ border-radius:10px;
 <!-- HERO -->
 <div class="hero">
 <div class="hero-content">
-<img src="MHMD0415.jpg">
+<img src="MHMD0415.jpg" loading="eager" decoding="async">
 <h1>Foudagraphy Studio</h1>
-<p>Global Creative Agency</p>
-<a class="btn" href="#booking">Book Now</a>
+<p>Creative Photography & Visual Storytelling</p>
+<a href="https://wa.me/201551927206" class="btn">احجز الآن</a>
 </div>
 </div>
 
 <!-- LINKS -->
 <div class="links">
-<a class="link" href="#">Facebook</a>
-<a class="link" href="#">Instagram</a>
-<a class="link" href="#">TikTok</a>
+<a class="link" href="https://www.facebook.com/MahmoudFouda8282">Facebook</a>
+<a class="link" href="https://www.instagram.com/foudagraphy_official/">Instagram</a>
+<a class="link" href="https://www.tiktok.com/@foudagraphy_official">TikTok</a>
+<a class="link" href="tel:01094500264">Call Now</a>
 </div>
 
 <!-- GALLERY -->
-<h2 class="section-title">Portfolio</h2>
+<h2 class="section-title">Our Work</h2>
 
+<div class="gallery">
 <div class="grid">
-<img src="BG.jpg">
-<img src="BG2.jpg">
-<img src="BG3.jpg">
-<img src="BG4.jpg">
-<img src="BG5.jpg">
-<img src="BG6.jpg">
+
+<img src="BG.jpg" loading="lazy" decoding="async">
+<img src="BG2.jpg" loading="lazy" decoding="async">
+<img src="BG3.jpg" loading="lazy" decoding="async">
+<img src="BG4.jpg" loading="lazy" decoding="async">
+<img src="BG5.jpg" loading="lazy" decoding="async">
+<img src="BG6.jpg" loading="lazy" decoding="async">
+
+</div>
 </div>
 
-<!-- BOOKING -->
-<h2 class="section-title" id="booking">Book Now</h2>
+<!-- FORM -->
+<h2 class="section-title">Book Now</h2>
 
 <div class="form">
-<form id="bookingForm">
-
-<input type="text" id="name" placeholder="الاسم" required>
-<input type="tel" id="phone" placeholder="الرقم" required>
-<textarea id="message" placeholder="تفاصيل الحجز"></textarea>
-
-<input type="file" id="paymentImage" accept="image/*" required>
-
-<button type="submit">إرسال الحجز</button>
-
-<p id="status" style="text-align:center;margin-top:10px;"></p>
-
+<form action="https://formspree.io/f/xdabenkv" method="POST">
+<input type="text" name="name" placeholder="الاسم" required>
+<input type="tel" name="phone" placeholder="رقم الهاتف" required>
+<textarea name="message" placeholder="تفاصيل الحجز"></textarea>
+<button type="submit">إرسال</button>
 </form>
-</div>
-
-<!-- ADMIN -->
-<h2 class="section-title">Admin Dashboard</h2>
-<div class="admin" id="adminPanel">
-<p style="color:#aaa;text-align:center;">Loading bookings...</p>
 </div>
 
 <!-- LIGHTBOX -->
 <div id="lightbox">
-<div class="close" onclick="closeLB()">×</div>
-<img id="lbImg">
+<div class="close" onclick="closeLightbox()">×</div>
+
+<img id="lightbox-img">
+
+<div class="controls">
+<button onclick="prevImg()">Prev</button>
+<button onclick="nextImg()">Next</button>
+</div>
 </div>
 
 <script>
-/* LIGHTBOX */
-const imgs=document.querySelectorAll(".grid img");
-const lb=document.getElementById("lightbox");
-const lbImg=document.getElementById("lbImg");
+const images = Array.from(document.querySelectorAll(".grid img"));
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
 
-imgs.forEach(img=>{
-img.onclick=()=>{
-lb.style.display="flex";
-lbImg.src=img.src;
-}
+let currentIndex = 0;
+
+images.forEach((img, index) => {
+img.addEventListener("click", () => {
+currentIndex = index;
+openLightbox();
+});
 });
 
-function closeLB(){lb.style.display="none"}
-lb.onclick=(e)=>{if(e.target===lb)closeLB()}
-
-/* CLOUDINARY */
-const CLOUD_NAME="foudagraphy";
-const UPLOAD_PRESET="foudagraphy_upload";
-
-async function uploadImage(file){
-const fd=new FormData();
-fd.append("file",file);
-fd.append("upload_preset",UPLOAD_PRESET);
-
-const res=await fetch(`https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`,{
-method:"POST",
-body:fd
-});
-
-const data=await res.json();
-return data.secure_url;
+function openLightbox(){
+lightbox.style.display = "flex";
+lightboxImg.src = images[currentIndex].src;
 }
 
-/* FORM */
-const form=document.getElementById("bookingForm");
-const status=document.getElementById("status");
+function closeLightbox(){
+lightbox.style.display = "none";
+}
 
-form.addEventListener("submit",async(e)=>{
-e.preventDefault();
+function nextImg(){
+currentIndex = (currentIndex + 1) % images.length;
+lightboxImg.src = images[currentIndex].src;
+}
 
-status.innerText="⏳ Sending...";
+function prevImg(){
+currentIndex = (currentIndex - 1 + images.length) % images.length;
+lightboxImg.src = images[currentIndex].src;
+}
 
-const name=nameInput.value=document.getElementById("name").value;
-const phone=document.getElementById("phone").value;
-const message=document.getElementById("message").value;
-const file=document.getElementById("paymentImage").files[0];
-
-const imageURL=await uploadImage(file);
-
-/* Formspree */
-await fetch("https://formspree.io/f/xdabenkv",{
-method:"POST",
-headers:{"Content-Type":"application/json"},
-body:JSON.stringify({name,phone,message,imageURL})
-});
-
-status.innerText="✅ Done";
-form.reset();
-});
-
-/* ADMIN (local demo) */
-const adminPanel=document.getElementById("adminPanel");
-
-fetch("https://api.formspree.io/forms/xdabenkv/submissions")
-.catch(()=>{})
-.then(()=> {
-adminPanel.innerHTML=`
-<div class="card">📌 الحجوزات بتظهر في Email أو Formspree dashboard</div>
-`;
+lightbox.addEventListener("click", (e) => {
+if(e.target === lightbox) closeLightbox();
 });
 </script>
 
